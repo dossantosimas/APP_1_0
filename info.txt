@@ -28,6 +28,7 @@ PAQUETES
 
 ARCHIVOS:
     1) index.js: archivo principal de la aplicacion
+        9- app.set('port', process.env.PORT || 3000); Si existe un puerto en el servidor disponible lo asignara sino usa el 3000
     2) database.js: conexion con la base de datos
 
 CARPETAS:
@@ -35,3 +36,6 @@ CARPETAS:
     2) routes: crear las URLs o rutas
     3) public: todos los archivos estaticos: css, archivos, imagenes, fuentes, archivos javascripts
     4) models: definir los datos almacenados en la base de datos
+    5) helpers: funcion que el servidor puede utilzar, cualquier funcionar que se reutilice
+    6) config: puede almacenar distintos archivos, variables de configuraiones de entorno, algunas configuraciones de ciertos modulos
+
