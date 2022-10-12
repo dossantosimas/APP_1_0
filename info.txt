@@ -1,0 +1,37 @@
+PAQUETES
+    1) express:
+        - Framework de node
+
+    2) express-handlebars:
+        - Motor de plantilla, el HTML no tiene condicionales o bucles pero con el motor de plantilla si se puede
+
+    3) express-session:
+        - Permite crear sesiones dentro del servidor. Se almacenan temporalmente sus datos en una sesion
+
+    4) methon-override:
+        - Extender funcionalidades de los formularios. Los formularios solo permiten GET y POST. Con este paquete se puede usar PUT y DELETE
+
+    5) mongoose:
+        - Permite unir express con una base de datos
+    
+    6) passport:
+        - Poder autenticar el usuario
+
+    7) passport-local:
+        - Poder autenticar el usuario
+
+    8) bcrypts:
+        - Permite aplicar algoritmos a detenermiados strings. Para encriptar la contraseña
+
+    9) connect-flash:
+        - Enviar mensajes entre multiples vistas
+
+ARCHIVOS:
+    1) index.js: archivo principal de la aplicacion
+    2) database.js: conexion con la base de datos
+
+CARPETAS:
+    1) views: contiene todos los HTML en formato handlebar ".hbs"
+    2) routes: crear las URLs o rutas
+    3) public: todos los archivos estaticos: css, archivos, imagenes, fuentes, archivos javascripts
+    4) models: definir los datos almacenados en la base de datos
