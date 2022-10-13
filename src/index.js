@@ -21,4 +21,6 @@ app.set('port', process.env.PORT || 3000);
 
 
 // Server is Listenning
-app.listen(app.get('port'), )
+app.listen(app.get('port'), () => {
+    console.log('Server on port', app.get('port'));
+});

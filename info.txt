@@ -26,6 +26,9 @@ PAQUETES
     9) connect-flash:
         - Enviar mensajes entre multiples vistas
 
+    8) nodemon:
+        - El servidor de reinicia solo cuando hay un cambio
+
 ARCHIVOS:
     1) index.js: archivo principal de la aplicacion
         9- app.set('port', process.env.PORT || 3000); Si existe un puerto en el servidor disponible lo asignara sino usa el 3000
