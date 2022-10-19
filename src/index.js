@@ -32,12 +32,12 @@ app.use(session({
 
 // Routes
 app.use(require('./routes/index'));
-app.use(require('./routes/equipos'));
+app.use(require('./routes/equipo'));
 app.use(require('./routes/torneos'));
 app.use(require('./routes/users'));
 
 // Static Files
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Server is Listenning
 app.listen(app.get('port'), () => {
