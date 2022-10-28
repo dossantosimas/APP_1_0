@@ -40,6 +40,7 @@ app.use(require('./routes/users'));
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // Server is Listenning
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));

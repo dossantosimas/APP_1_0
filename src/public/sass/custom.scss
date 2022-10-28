@@ -1,0 +1,56 @@
+
+
+.ocultar{
+    display: none;
+}
+.carousel-inner{
+    height: 60vh;
+}
+$primary: #FA8D0A;
+
+
+// CUSTOM PABLO
+.fondo-negro
+{
+    background-color: black;
+}
+
+.fondo-gris
+{
+    background-color: #eae8e8;
+}
+
+.fondo-tw
+{
+    background-color: #FCCE70;
+}
+
+
+.letra-blanco
+{
+    color: white;
+}
+
+.letra-negro
+{
+    color: black
+}
+
+.tam-450
+{
+    // height: 450px
+    height: 350px
+}
+
+.tam-300
+{
+    height: 300px
+}
+
+.zpos
+{
+    z-index: 1
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
