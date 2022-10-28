@@ -2,3 +2,8 @@ body
 {
     background-image: url("/img/fondo.jpg");
 }
+
+.monserrate
+{
+    font-family: 'Montserrat', sans-serif;
+}
