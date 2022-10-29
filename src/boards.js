@@ -1,6 +1,13 @@
 //RENDERIZAR EN EL CONTENEDOR positionBoardContainer
 
+import {get} from "./services/network";
+
 let number = 1;
+
+
+const getTodos = () => {
+    return get("/todos");
+}
 
 
 
