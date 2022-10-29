@@ -39,9 +39,9 @@ const homePage = async ()=>{
     clubDetailedContainer.classList.add('ocultar');
     clubDetailedContainer.classList.remove('row');
 
-    const todos = await getTodos();
+    // const todos = await getTodos();
 
-    console.log(todos);
+    // console.log(todos);
 
     leadershipBoardPreview();  
 
