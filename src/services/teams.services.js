@@ -1,4 +1,4 @@
-// import { get } from './network.js';
+import { get } from './network.js';
 
 const getTeams = () => {
     return get("/teams");
@@ -9,7 +9,8 @@ const getTeamById = ()=>{
         id: params.id
     })
 }
-// export const getPLayerById
+
+// export const getPLayerById = ()=>
 const getPlayerById = ()=>{
     return get("/players", {
         id: params.id,

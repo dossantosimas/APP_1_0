@@ -15,11 +15,11 @@ function navigator (){
     if(location.hash.startsWith('#register')){
         return registro();
     }
-    if(location.hash.startsWith('#teams')){
-        return clubes();
-    }
     if(location.hash.startsWith('#teams/teamId=')){
         return viewClub();
+    }
+    if(location.hash.startsWith('#teams')){
+        return clubes();
     }
     else if(location.hash.startsWith('#home' || '')) {
         return homePage();
