@@ -1,17 +1,17 @@
 import { get } from './network.js';
 
-const getTeams = () => {
+export function getTeams() {
     return get("/teams");
 }
 
-const getTeamById = ()=>{
+export function getTeamById() {
     return get("/teams", {
         id: params.id
     })
 }
 
 // export const getPLayerById = ()=>
-const getPlayerById = ()=>{
+export function getPlayerById(){
     return get("/players", {
         id: params.id,
     })

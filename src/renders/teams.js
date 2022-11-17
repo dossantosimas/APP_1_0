@@ -1,5 +1,10 @@
-// import { getTeams, getTeamById, getPlayerById } from "../services/teams.services.js";
+import { getTeams, getTeamById, getPlayerById } from "../services/teams.services.js";
 
+async function showteams(){
+	const teams = await getTeams()
+	console.log(teams)
+}
+showteams()
 
 const renderClubs = ()=>{
 	// 

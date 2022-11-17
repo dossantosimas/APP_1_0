@@ -1,35 +1,29 @@
-// import {axios} from 'axios';
+// import Axios from "axios";
 
-const api = axios.create({
-  baseURL: "http://localhost3000/api/v1"
-});
-// const http = Axios.create({baseURL: "https://localhost:3000/api/v1"});
+const http = axios.create({baseURL: "http://localhost:3000/api/v1"});
 
- async function get(url, params) {
-    try {
-    const res = await api.get(url, {
+export function get(url, params) {
+    return http.get(url, {
       params
+    })
+    .then(res => res.data)
+    .catch(reason => {
+      console.error(reason.message);
     });
-    return res.data;
-  } catch (reason) {
-    console.error(reason.message);
-  }
 }
 
- async function post(url, body) {
-    try {
-    const res = await api.post(url, body);
-    return res.data;
-  } catch (reason) {
-    console.error(reason.message);
-  }
+export function post(url, body) {
+    return http.post(url, body)
+    .then(res => res.data)
+    .catch(reason => {
+        console.error(reason.message);
+    });
 }
 
- async function patch(url, body) {
-  try {
-    const res = await api.patch(url, body);
-    return res.data;
-  } catch (reason) {
-    console.error(reason.message);
-  }
+export function patch(url, params, body) {
+  return http.patch(url,{params}, body)
+  .then(res => res.data)
+  .catch(reason => {
+      console.error(reason.message);
+  });
 }
