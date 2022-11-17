@@ -1,21 +1,35 @@
-import Axios from "axios";
+// import {axios} from 'axios';
 
-const http = Axios.create({baseURL: "https://jsonplaceholder.typicode.com"});
+const api = axios.create({
+  baseURL: "http://localhost3000/api/v1"
+});
+// const http = Axios.create({baseURL: "https://localhost:3000/api/v1"});
 
-export function get(url, params) {
-    return http.get(url, {
+ async function get(url, params) {
+    try {
+    const res = await api.get(url, {
       params
-    })
-    .then(res => res.data)
-    .catch(reason => {
-      console.error(reason.message);
     });
+    return res.data;
+  } catch (reason) {
+    console.error(reason.message);
+  }
 }
 
-export function post(url, body) {
-    return http.post(url, body)
-    .then(res => res.data)
-    .catch(reason => {
-        console.error(reason.message);
-    });
+ async function post(url, body) {
+    try {
+    const res = await api.post(url, body);
+    return res.data;
+  } catch (reason) {
+    console.error(reason.message);
+  }
+}
+
+ async function patch(url, body) {
+  try {
+    const res = await api.patch(url, body);
+    return res.data;
+  } catch (reason) {
+    console.error(reason.message);
+  }
 }

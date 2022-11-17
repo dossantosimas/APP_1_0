@@ -18,7 +18,7 @@
     <!-- NAV BAR -->
     <div class="bg-dark d-none d-sm-block sticky-top" id="menu">
       <nav class="container-xxl d-flex align-items-center">
-        <div class="fondo-rojo logo">
+        <div class="logo">
           <a class="" href="#home">
             <img src="/images/neb-logo.png" alt="" class="p-1" width=70px>
           </a>
@@ -32,7 +32,7 @@
               <button class="btn text-light fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Torneos
               </button>
-              <ul class="dropdown-menu">
+              <ul id="navbar-list" class="dropdown-menu">
                 <li><a class="dropdown-item" href="#la_liga">La Liga</a></li>
                 <li><a class="dropdown-item" href="#segunda">2ra Categoria</a></li>
                 <li><a class="dropdown-item" href="#register">registro de equipo</a></li>
@@ -50,7 +50,7 @@
     <section id="navbar-container" class="d-block d-sm-none">
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html">
+          <a class="navbar-brand" href="/">
             <img src="/images/neb-logo.png" alt="" class="fondo-rojo p-1" width=70px>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -64,7 +64,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="/index.html">Inicio</a>
+                  <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
                   <!-- <a class="nav-link" href="#">Primera</a> -->
@@ -72,20 +72,21 @@
                     <div class="dropdown">
                       <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">Torneos</a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/baranoa.html">Baranoa</a></li>
-                        <li><a class="dropdown-item" href="/segunda.html">2ra Categoria</a></li>
-                        <li><a class="dropdown-item" href="#">Femenino</a></li>
-                        <li><a class="dropdown-item" href="/plus40.html">+40</a></li>
-                        <li><a class="dropdown-item" href="/plus50.html">+50</a></li>
+                        <li><a class="dropdown-item" href="/la_liga">la liga</a></li>
+                        <li><a class="dropdown-item" href="/segunda">2da Categoria</a></li>
+                        <li><a class="dropdown-item" href="/register">registrar</a></li>
                       </ul>
                     </div>
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Clubes</a>
+                  <a class="nav-link" href="/teams">Clubes</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Femenino</a>
+                  <a class="nav-link" href="/noticias">Noticias</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Historia</a>
                 </li>
  
             </div>
@@ -399,8 +400,8 @@
 
     <!-- VISTA DE CLUB -->
     <div id="clubDetailedContainer" class="row py-5 ocultar">
-      <div class="card mb-3 bg-primary" >
-        <div class="row mb-5">
+      <div class="card mb-3 bg-primary" id="divClub1">
+        <div class="row mb-5" id="divClub2">
           <div class="col-md-4">
             <img src="./images/neb-logo.png" class="img-fluid rounded-start" style="max-width: 270px;" alt="...">
           </div>
@@ -413,7 +414,7 @@
           </div>
         </div>
         <!-- NAVEGACION EN EL EQUIPO -->
-        <div class="row bg-dark">
+        <div class="row bg-dark" id="divClub3">
           <ul class="nav nav-tabs " id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active " id="teammates-tab" data-bs-toggle="tab" data-bs-target="#teammates-tab-pane" type="button" role="tab" aria-controls="teammates-tab-pane" aria-selected="true">Plantilla</button>
@@ -526,15 +527,24 @@
       </div>
     </footer>
 
+
+
     <!--SCRIPTS DE JS  -->
-    <script src="./src/services/helpers.js"></script>
-    <script src="./src/services/nodes.js"></script>
-    <script src="./src/services/app_manager.js"></script>
-    <script src="./src/services/registrationForm.js"></script>
-    <script src="./src/services/matches.js"></script>
-    <script src="./src/services/teams.js"></script>
-    <script src="./src/services/news.js"></script>
-    <script src="./src/services/boards.js"></script>
-    <script src="./src/services/navigation.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+
+    <script src="./src/renders/helpers.js"></script>
+    <script src="./src/renders/nodes.js"></script>
+    <script src="./src/services/network.js"></script>
+    <script src="./src/services/teams.services.js"></script>
+    <script src="./src/services/boards.services.js"></script>
+    <script src="./src/renders/app_manager.js"></script>
+    <script src="./src/renders/registrationForm.js"></script>
+    <script src="./src/renders/matches.js"></script>
+    <script src="./src/renders/teams.js"></script>
+    <script src="./src/renders/news.js"></script>
+    <script src="./src/renders/boards.js"></script>
+    <script src="./src/renders/navigation.js"></script>
+
+    <!-- <script type="module" src="./src/index.js"></script> -->
   </body>
 </html>
