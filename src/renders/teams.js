@@ -1,30 +1,30 @@
 import { getTeams, getTeamById, getPlayerById } from "../services/teams.services.js";
 
-async function showteams(){
-	const teams = await getTeams()
-	console.log(teams)
-}
-showteams()
+// async function showteams(){
+// 	const teamsList = await getTeams()
+// 	console.log(teamsList)
+// }
 
-const renderClubs = ()=>{
-	// 
-	// const teamsList = getTeams();
-	// console.log(teamsList);
+
+export const renderClubs = async()=>{
+
+	const teamsList = await getTeams()
+	// console.log(teamsList)
 
 	clubsContainer.innerHTML = '';
 
-	championshipListParsed.forEach(team => {
+	teamsList.forEach(team => {
 		const teamCard = document.createElement('div')
 		const teamName = document.createElement('h4');
 		const divName = document.createElement('div');
 		const teamLogo = document.createElement('img');
 
-		teamName.innerText = team.teamName;
+		teamName.innerText = team.name;
 		teamName.classList.add('text-center');
 		teamName.classList.add('text-light');
 
-		if(team.logo){
-			teamLogo.setAttribute('src', team.logo);
+		if(team.image){
+			teamLogo.setAttribute('src', team.image);
 		} else {
 			teamLogo.setAttribute('src', './images/neb-logo.png');
 		}
@@ -40,7 +40,8 @@ const renderClubs = ()=>{
 		teamName.classList.add('card-text');
 
 		teamCard.addEventListener('click', ()=>{
-				location.hash = `#teams/teamId=${team.id}`;
+			getTeamByParams(team.id)
+			location.hash = `#teams/teamId:${team.id}`;
 		})
 
 		divName.appendChild(teamName);
@@ -50,19 +51,24 @@ const renderClubs = ()=>{
 	});
 }
 
-const getTeamByQuery = (query) =>{
+export const getTeamByParams = async(id) =>{
 
+	const data = await getTeamById(id);
+	console.log(data);
 	coachesSection.innerHTML = '';
 	playersSection.innerHTML = '';
 	
 	// teamData = getTeamById();
 	// const { coaches, players} = data; 
 
-	const teamData = championshipListParsed.find(team => team.id == query);
-	console.log(`El equipo es ${teamData.teamName}`)
+	const teamData = data.find(team => team.id == id);
+	// console.log(teamData)
+	console.log(`El equipo es ${teamData.name}`)
 
-	const coaches = teamData.coaches;
+	const coaches = teamData.Coach;
+	console.log(coaches)
 	const players = teamData.players;
+	// console.log(players);
 
 	const coachTitle = document.createElement('h2');
 	coachTitle.classList.add('texto-blanco');
@@ -88,7 +94,7 @@ const getTeamByQuery = (query) =>{
 			coachImg.classList.add('card-img-top');
 			divBody.classList.add('card-body');
 			coachName.classList.add('card-text');
-			coachName.innerText = coach;
+			coachName.innerText = `${coach.name} ${coach.lastName}`;
 
 			divBody.appendChild(coachName);
 			div.appendChild(coachImg);
@@ -114,7 +120,7 @@ const getTeamByQuery = (query) =>{
 			const playerTriples = document.createElement('li');;
 
 			if(player.img){
-					playerImg.setAttribute('src', player.img);
+					playerImg.setAttribute('src', player.image);
 			} else {
 					playerImg.setAttribute('src', './images/neb-logo.png');
 			}
@@ -134,7 +140,7 @@ const getTeamByQuery = (query) =>{
 			playerPoints.classList.add('list-group-item');
 			playerTriples.classList.add('list-group-item');
 
-			playerName.innerHTML = ` <b> Nombre: </b> <br> ${player.name} ${player.lastname}`;
+			playerName.innerHTML = ` <b> Nombre: </b> <br> ${player.name} ${player.lastName}`;
 			playerPosition.innerHTML = `<b> Posición:</b> <br>${player.position}`;
 			playerPoints.innerHTML = `<b> Anotaciones en el campeonato: </b> <br>${player.annotations}`;
 			playerTriples.innerHTML = `<b> Anotaciones 3 puntos:</b> <br>${player.triples}`
@@ -154,7 +160,10 @@ const getTeamByQuery = (query) =>{
 	//clubDetailedContainer.appendChild()
 }
 
-const getPLayer = (params) =>{
+export const getPLayer = (params) =>{
 	// const dataPlayer = getPlayerById();
 	
 }
+
+
+// module.exports = {renderClubs, getTeamByQuery, getPLayer}

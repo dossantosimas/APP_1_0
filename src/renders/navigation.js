@@ -1,4 +1,4 @@
-// import { renderClubs, getTeamByQuery, getPLayer } from '../renders/teams.js'
+import { renderClubs, getTeamByParams, getPLayer } from '../renders/teams.js'
 
 // formCreateTeam.classList.add('ocultar');
 // mainTables.classList.remove('ocultar');
@@ -15,7 +15,7 @@ function navigator (){
     if(location.hash.startsWith('#register')){
         return registro();
     }
-    if(location.hash.startsWith('#teams/teamId=')){
+    if(location.hash.startsWith('#teams/teamId')){
         return viewClub();
     }
     if(location.hash.startsWith('#teams')){
@@ -133,8 +133,8 @@ const viewClub = ()=>{
 
 
     //['#team', 'buscado']
-    const [ , query] = location.hash.split('=');
-    getTeamByQuery(query);
+    const [ , param] = location.hash.split(':');
+    getTeamByParams(param);
 }
 
 window.addEventListener('DOMContentLoaded', navigator, false);
