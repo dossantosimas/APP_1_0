@@ -1,5 +1,5 @@
 import { renderClubs, getTeamByParams, getPLayer } from '../renders/teams.js'
-
+import {renderDetailedLeadershipBoard, renderAnnotationsList, renderTriplesList} from '../renders/boards.js'
 // formCreateTeam.classList.add('ocultar');
 // mainTables.classList.remove('ocultar');
 // scorers.classList.remove('ocultar');
@@ -21,7 +21,7 @@ function navigator (){
     if(location.hash.startsWith('#teams')){
         return clubes();
     }
-    else if(location.hash.startsWith('#home' || '')) {
+    else if(location.hash.startsWith('#home')) {
         return homePage();
     }
 }
@@ -51,7 +51,7 @@ const homePage = async ()=>{
 
     // console.log(todos);
 
-    leadershipBoardPreview();  
+    // leadershipBoardPreview();  
 
 }
 
@@ -72,8 +72,8 @@ const registro = ()=>{
 
 }
 
-const laLigaChampionShip = ()=>{
-    console.log('la Liga');
+export const laLigaChampionShip = (name,id)=>{
+    console.log(name);
     HomePage.classList.add('ocultar');
     formCreateTeam.classList.add('ocultar');
     mainTables.classList.remove('ocultar');
@@ -87,7 +87,7 @@ const laLigaChampionShip = ()=>{
     clubDetailedContainer.classList.remove('row');
 
 
-    renderDetailedLeadershipBoard();
+    renderDetailedLeadershipBoard(id);
     renderAnnotationsList();
     renderTriplesList();
 

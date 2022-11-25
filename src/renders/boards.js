@@ -1,10 +1,11 @@
 //RENDERIZAR EN EL CONTENEDOR positionBoardContainer
 
-// import {getBoards} from "../services/boards.services";
+import {getBoards} from "../services/boards.services.js";
+import {getPlayers} from "../services/player.services.js"
 
 let number = 1;
 
-championshipListParsed = JSON.parse(localStorage.getItem('championshipList_V1'))
+// championshipListParsed = JSON.parse(localStorage.getItem('championshipList_V1'))
 
 const leadershipBoardPreview = ()=>{
 
@@ -90,15 +91,21 @@ const renderGeneralLeadershipBoard = (container)=>{
 }
 
 
-const renderDetailedLeadershipBoard = ()=>{
+export const renderDetailedLeadershipBoard = async(id)=>{
     
     positionBoardContainer.innerHTML = "";
     let number = 1;
     
-    // const {championshipList} = getBoards();
-    const newChampionshipList = championshipListParsed.sort((a,b)=> b.points - a.points);
-    
-    console.log(newChampionshipList)
+    const championship = await getBoards(id);
+    const Championship = championship.find(item => item.id == id);
+
+    console.log('el campeonato es:');
+    console.log(Championship);
+
+    const newChampionshipList = Championship.Teams.sort((a,b)=> b.points - a.points);
+
+    console.log('los equipos ordenados son:');
+    console.log(newChampionshipList);
 
     newChampionshipList.forEach(team => {
 
@@ -122,10 +129,10 @@ const renderDetailedLeadershipBoard = ()=>{
         points.classList.add('text-center');
 
         position.innerText = number++;
-        teamName.innerText = team.teamName;
-        win.innerText = team.win;
-        lose.innerText = team.lose;
-        w.innerText = team.w;
+        teamName.innerText = team.name;
+        win.innerText = team.winnerGames;
+        lose.innerText = team.losedGames;
+        w.innerText = team.WGames;
         favorPoints.innerText = team.favorPoints;
         againstPoints.innerText = team.againstPoints;
         points.innerText = team.points;
@@ -144,19 +151,16 @@ const renderDetailedLeadershipBoard = ()=>{
 
 }
 
-const renderAnnotationsList = ()=>{
-    // const {scorersTable} = getBoards();
+export const renderAnnotationsList = async()=>{
 
     scorersTable.innerHTML = '';
     let pos = 1;
-    let allPlayers = [];
-    championshipListParsed.forEach(team => {
-        allPlayers.push(team.players)
-    });
-    scorers = allPlayers.flat();
 
-    scorers.sort((a,b)=> b.annotations - a.annotations);
-    //console.log(scorers);
+    const players = await getPlayers();
+    console.log(players);
+
+    players.sort((a,b)=> b.annotations - a.annotations);
+
 
     for (let i = 0; i < 5; i++) {
 
@@ -170,8 +174,8 @@ const renderAnnotationsList = ()=>{
         scorerPoints.classList.add('text-center');
         
         scorerPosition.innerText = pos++;
-        scorerName.innerText = `${scorers[i].name} ${scorers[i].lastname}`;
-        scorerPoints.innerText = scorers[i].annotations;
+        scorerName.innerText = `${players[i].name} ${players[i].lastName}`;
+        scorerPoints.innerText = players[i].annotations;
 
         tr.appendChild(scorerPosition);
         tr.appendChild(scorerName);
@@ -179,23 +183,19 @@ const renderAnnotationsList = ()=>{
 
         scorersTable.appendChild(tr);
 
-        //console.log(scorers[i].name);
         
     }
 }
 
-const renderTriplesList = ()=>{
+export const renderTriplesList = async()=>{
     // const {triplesTable} = getBoards();
 
     triplesTable.innerHTML = '';
     let triplespos = 1;
-    let allPlayers = [];
-    championshipListParsed.forEach(team => {
-        allPlayers.push(team.players)
-    });
-    scorers = allPlayers.flat();
+    const players = await getPlayers();
+    console.log(players);
 
-    scorers.sort((a,b)=> b.triples - a.triples);
+    players.sort((a,b)=> b.triples - a.triples);
     //console.log(scorers);
 
     for (let i = 0; i < 5; i++) {
@@ -210,8 +210,8 @@ const renderTriplesList = ()=>{
         scorerPoints.classList.add('text-center');
         
         scorerPosition.innerText = triplespos++;
-        scorerName.innerText = `${scorers[i].name} ${scorers[i].lastname}`;
-        scorerPoints.innerText = scorers[i].triples;
+        scorerName.innerText = `${players[i].name} ${players[i].lastName}`;
+        scorerPoints.innerText = players[i].triples;
 
         tr.appendChild(scorerPosition);
         tr.appendChild(scorerName);
@@ -224,7 +224,7 @@ const renderTriplesList = ()=>{
     }
 }
 
-leadershipBoardPreview()
+// leadershipBoardPreview()
 // renderLeadershipBoard();
 // renderAnnotationsList();
 // renderTriplesList();

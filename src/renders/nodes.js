@@ -1,3 +1,6 @@
+//NAV
+const navbarList = document.querySelector('#navbar-list');
+
 //SECCION HOME
 const HomePage = document.querySelector('#HomePage');
 const newsContainer = document.querySelector('#newsContainer');
