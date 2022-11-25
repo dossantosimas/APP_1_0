@@ -151,14 +151,16 @@ export const renderDetailedLeadershipBoard = async(id)=>{
 
 }
 
-export const renderAnnotationsList = async()=>{
+export const renderAnnotationsList = async(id)=>{
 
     scorersTable.innerHTML = '';
     let pos = 1;
 
-    const players = await getPlayers();
-    console.log(players);
+    const allPlayers = await getPlayers();
+    // console.log(allPlayers);
 
+    const players = allPlayers.filter(player=> player.team.championshipId == id)
+    // console.log(players);
     players.sort((a,b)=> b.annotations - a.annotations);
 
 
@@ -187,13 +189,14 @@ export const renderAnnotationsList = async()=>{
     }
 }
 
-export const renderTriplesList = async()=>{
+export const renderTriplesList = async(id)=>{
     // const {triplesTable} = getBoards();
 
     triplesTable.innerHTML = '';
     let triplespos = 1;
-    const players = await getPlayers();
-    console.log(players);
+    const allPlayers = await getPlayers();
+    // console.log(allPlayers);
+    const players = allPlayers.filter(player=> player.team.championshipId == id)
 
     players.sort((a,b)=> b.triples - a.triples);
     //console.log(scorers);

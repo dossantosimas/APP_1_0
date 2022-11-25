@@ -88,8 +88,8 @@ export const laLigaChampionShip = (name,id)=>{
 
 
     renderDetailedLeadershipBoard(id);
-    renderAnnotationsList();
-    renderTriplesList();
+    renderAnnotationsList(id);
+    renderTriplesList(id);
 
 }
 
