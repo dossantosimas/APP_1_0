@@ -1,5 +1,7 @@
 import { renderClubs, getTeamByParams, getPLayer } from '../renders/teams.js'
 import {renderDetailedLeadershipBoard, renderAnnotationsList, renderTriplesList, leadershipBoardPreview} from '../renders/boards.js'
+import {renderNewsPreview} from '../renders/news.js'
+
 // formCreateTeam.classList.add('ocultar');
 // mainTables.classList.remove('ocultar');
 // scorers.classList.remove('ocultar');
@@ -18,7 +20,7 @@ function navigator (){
     if(location.hash.startsWith('#teams')){
         return clubes();
     }
-    else if(location.hash.startsWith('#home')) {
+    else if(location.hash.startsWith('#home' || '/')) {
         return homePage();
     }
 }
@@ -44,7 +46,8 @@ const homePage = async ()=>{
     clubDetailedContainer.classList.add('ocultar');
     clubDetailedContainer.classList.remove('row');
 
-    leadershipBoardPreview();  
+    leadershipBoardPreview();
+    renderNewsPreview();  
 
 }
 
@@ -130,7 +133,7 @@ const viewClub = ()=>{
     getTeamByParams(param);
 }
 
-window.addEventListener('DOMContentLoaded', navigator, false);
+window.addEventListener('DOMContentLoaded', navigator, false, homePage());
 window.addEventListener('hashchange', navigator, false);
 
 // export default navigator;
