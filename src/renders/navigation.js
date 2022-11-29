@@ -1,5 +1,5 @@
 import { renderClubs, getTeamByParams, getPLayer } from '../renders/teams.js'
-import {renderDetailedLeadershipBoard, renderAnnotationsList, renderTriplesList} from '../renders/boards.js'
+import {renderDetailedLeadershipBoard, renderAnnotationsList, renderTriplesList, leadershipBoardPreview} from '../renders/boards.js'
 // formCreateTeam.classList.add('ocultar');
 // mainTables.classList.remove('ocultar');
 // scorers.classList.remove('ocultar');
@@ -8,9 +8,6 @@ import {renderDetailedLeadershipBoard, renderAnnotationsList, renderTriplesList}
 function navigator (){
     if(location.hash.startsWith('#la_liga')){
         return laLigaChampionShip();
-    }
-    if(location.hash.startsWith('#segunda')){
-        return segundaChampionShip();
     }
     if(location.hash.startsWith('#register')){
         return registro();
@@ -47,11 +44,7 @@ const homePage = async ()=>{
     clubDetailedContainer.classList.add('ocultar');
     clubDetailedContainer.classList.remove('row');
 
-    // const todos = await getTodos();
-
-    // console.log(todos);
-
-    // leadershipBoardPreview();  
+    leadershipBoardPreview();  
 
 }
 

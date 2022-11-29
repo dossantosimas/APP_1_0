@@ -2,6 +2,7 @@
 const navbarList = document.querySelector('#navbar-list');
 
 //SECCION HOME
+const homeTables = document.querySelector('#home-table')
 const HomePage = document.querySelector('#HomePage');
 const newsContainer = document.querySelector('#newsContainer');
 const tablePreview1 = document.querySelector('#tablePreview1');
