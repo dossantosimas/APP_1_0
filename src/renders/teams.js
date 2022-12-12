@@ -1,11 +1,5 @@
 import { getTeams, getTeamById, getPlayerById } from "../services/teams.services.js";
 
-// async function showteams(){
-// 	const teamsList = await getTeams()
-// 	console.log(teamsList)
-// }
-
-
 export const renderClubs = async()=>{
 
 	const teamsList = await getTeams()
@@ -52,7 +46,6 @@ export const renderClubs = async()=>{
 }
 
 export const getTeamByParams = async(id) =>{
-
 	const data = await getTeamById(id);
 	console.log(data);
 	coachesSection.innerHTML = '';
@@ -66,7 +59,7 @@ export const getTeamByParams = async(id) =>{
 	console.log(`El equipo es ${teamData.name}`)
 
 	const coaches = teamData.Coach;
-	console.log(coaches)
+	// console.log(coaches)
 	const players = teamData.players;
 	// console.log(players);
 

@@ -1,6 +1,6 @@
 // import Axios from "axios";
 
-const http = axios.create({baseURL: "http://localhost:3000/api/v1"});
+export const http = axios.create({baseURL: "http://localhost:3000/api/v1"});
 
 export function get(url, params) {
     return http.get(url, {

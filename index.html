@@ -38,8 +38,8 @@
             </div>
           </div>
           <div class="col-2 text-center"><a class="btn text-light fw-bold" href="#teams">Clubes</a></div>
-          <div class="col-2 text-center"><a class="btn text-light fw-bold" href="#noticias">Noticias</a></div>
-          <div class="col-2 text-center"><a class="btn text-light fw-bold" href="#">Historia</a></div>
+          <div class="col-2 text-center"><a class="btn text-light fw-bold" href="#news">Noticias</a></div>
+          <div class="col-2 text-center"><a class="btn text-light fw-bold" href="#">Acerca de</a></div>
           <!-- <div class="col-2"><a class="btn text-light fw-bold" href="#">Clubes</a></div> -->
         </div>
       </nav>
@@ -84,7 +84,7 @@
                   <a class="nav-link" href="/noticias">Noticias</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/">Historia</a>
+                  <a class="nav-link" href="/">Acerca de</a>
                 </li>
  
             </div>
@@ -107,17 +107,20 @@
         </section>
 
         <section id="coachesNames" class="row">
-          <div class="col-sm">
+          <div class="col-sm-9">
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Entrenador</span>
-              <input type="text" placeholder="nombre del entrenador" class="coach form-control" aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" placeholder="nombre" class="coach-1 form-control" aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" placeholder="apellido" class="coach-1 form-control" aria-label="Username" aria-describedby="basic-addon1" />
+
             </div>
           </div>
 
-          <div class="col-sm">
+          <div class="col-sm-9">
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1">Asistente</span>
-              <input type="text" placeholder="nombre del entrenador" class="coach form-control" aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" placeholder="nombre" class="coach-2 form-control" aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" placeholder="apellido" class="coach-2 form-control" aria-label="Username" aria-describedby="basic-addon1" />
             </div>
           </div>
 
@@ -410,8 +413,9 @@
       </div>
     </div>
 
-    <!-- NOVEDADES -->
-    <div id="newsContainer" class="card-group container-xxl pb-5 ocultar">
+    <!-- NEWS -->
+    <!-- PREVIEWS SUPERIOR DE NOTICIAS -->
+    <div id="newsContainer" class="card-group container-xxl py-5 ocultar">
       <!-- <div class="card bg-dark px-2 py-2">
         <img src="/images/selec_1.png" class="card-img-top" alt="..." width="431" height="216">
         <a href="https://www.fiba.basketball/es/basketballworldcup/2023/americas-qualifiers/game/2908/Colombia-USA" class="text-decoration-none" target="_blank">
@@ -421,20 +425,53 @@
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </a>
+      </div>-->
+    </div>
+
+    <!-- SECCION NOTICIAS -->
+    <section id="news-page-container" class="container-xxl my-5 px-3 ocultar">
+      <div id="news-container-body" class="row">
+
+        <!-- BARRA LATERAL DE PREVIEW DE NOTICIAS -->
+        <div id="news-side-container__principal" class="col-sm-4 col-md-4 col-lg-3">
+        </div>
       </div>
 
-      <div class="card bg-dark px-2 py-2">
-        <img src="/images/ven-1.png" class="card-img-top" alt="..." width="431" height="216">
-        <a href="#" class="text-decoration-none" target="">
-          <div class="card-body">
-            <h5 class="card-title text-white">Parque Venezuela Torneo de Primera</h5>
-            <p class="card-text text-white"></p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </section>
+    <!-- VISTA DE NOTICIA -->
+    <section id="new-section-container" class="container-xxl my-5 px-3 ocultar">
+      <div id="news-detailed-container" class="row">
+        <article class="col-sm-8 col-md-8 col-lg-9">
+          <div class="row mb-2">
+            <h3 class="letra-blanco">TITULO DEL ARTICULO</h3>
           </div>
-        </a>
-      </div> -->
-      
-    </div>
+          <img src="/images/selec_1.png" class="img-fluid my-3 text-sm-center" alt="...">
+          <div class="letra-blanco">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut debitis dicta odio asperiores iure repellat dolor, maiores rem fugiat distinctio assumenda recusandae nulla blanditiis libero incidunt veniam voluptatum aperiam vitae dignissimos ex molestiae obcaecati eum at! Sequi eligendi quasi mollitia illo esse distinctio beatae fugit! Vitae dolorem officiis, ad blanditiis recusandae esse corrupti reiciendis praesentium ipsa consequuntur, perferendis architecto repellat accusantium sit iure odit veniam placeat eaque velit alias maxime. Consequuntur delectus nulla sunt quibusdam dolorem ullam, accusamus modi molestias. Unde adipisci facilis eos omnis quo, fugit sint! Totam minus id tempore accusantium fuga doloribus, expedita libero quas obcaecati qui! Consequuntur officia esse, iure accusamus, exercitationem debitis corporis molestias aut nobis, vero consequatur? Tempore aliquam, pariatur, corrupti accusamus illum recusandae fuga, quia blanditiis id repellendus consectetur ducimus! Eius, sed delectus mollitia molestias, voluptatem deleniti sint harum similique pariatur veniam neque? Perspiciatis magnam distinctio voluptas accusamus minima ullam soluta consequuntur natus, iusto, quisquam, tenetur vel rerum alias. Ullam mollitia dolorum fugiat sequi temporibus corporis asperiores rem id quod necessitatibus in, accusantium labore magnam exercitationem laborum fuga a soluta dicta quibusdam hic ea explicabo enim. Vero qui fugit, architecto possimus error quod nesciunt eos dignissimos praesentium? Natus nemo aperiam adipisci ratione, impedit modi dolores rerum quia facilis, vitae vel eum cumque voluptas nulla! Quo cum numquam ad, consectetur commodi, vel nemo dolores omnis neque error praesentium eos voluptas pariatur vero excepturi qui eaque quam ut ullam, incidunt in recusandae quasi quas hic! Aliquid, esse? Iusto voluptatum perferendis sequi magnam atque. Quisquam quam dolorem ullam. Ex obcaecati, deleniti praesentium minus asperiores quibusdam quo ad amet voluptatem nesciunt perspiciatis fugiat magnam ea nisi quia? Iste ipsam molestias iusto, recusandae pariatur expedita aut eum dicta ab quod quo voluptatem exercitationem accusantium reprehenderit magnam laborum! Optio exercitationem quo rerum voluptas nihil sequi ea blanditiis beatae omnis?</div>
+        </article>
+        <!-- BARRA LATERAL DE PREVIEW DE NOTICIAS -->
+        <div id="news-side-container" class="col-sm-4 col-md-4 col-lg-3">
+          <!-- <div class="card bg-dark px-2 py-2 mb-2">
+            <img src="/images/selec_1.png" class="card-img-top" alt="..." width="431" height="216">
+              <div class="card-body">
+                <h5 class="card-title text-white">Copa Mundial de Baloncesto de la FIBA</h5>
+                <p class="card-text text-white">Colombia enfrentará a Estados Unidos el 29 de Agosto a las 19:40 horas en el estadio Elías Chegwin de la ciudad de Barranquilla</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+          </div>
+
+          <div class="card bg-dark px-2 py-2 mb-2">
+            <img src="/images/selec_1.png" class="card-img-top" alt="..." width="431" height="216">
+              <div class="card-body">
+                <h5 class="card-title text-white">Copa Mundial de Baloncesto de la FIBA</h5>
+                <p class="card-text text-white">Colombia enfrentará a Estados Unidos el 29 de Agosto a las 19:40 horas en el estadio Elías Chegwin de la ciudad de Barranquilla</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+          </div> -->
+          
+        </div>
+      </div>
+
+    </section>
 
     <!-- FECHAS PROXIMAMENTE -->
     <!-- <div class="row">
@@ -475,8 +512,7 @@
 
 
     <!--SCRIPTS DE JS  -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/renders/helpers.js"></script>
     <script src="./src/renders/nodes.js"></script>
     <script type="module" src="./src/services/network.js"></script>
@@ -487,10 +523,10 @@
     <script type="module" src="./src/services/news.services.js"></script>
     <script src="./src/renders/app_manager.js"></script>
     <script type="module" src="./src/renders/navbar.js"></script>
-    <script src="./src/renders/registrationForm.js"></script>
+    <script type="module" src="./src/services/registration.service.js"></script>
+    <script type="module" src="./src/renders/registrationForm.js"></script>
     <script src="./src/renders/matches.js"></script>
     <script type="module" src="./src/renders/teams.js"></script>
-    <script src="./src/renders/news.js"></script>
     <script type="module" src="./src/renders/boards.js"></script>
     <script type="module" src="./src/renders/news.js"></script>
     <script type="module" src="./src/renders/navigation.js"></script>

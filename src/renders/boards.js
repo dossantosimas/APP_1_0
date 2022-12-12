@@ -210,6 +210,11 @@ const renderGeneralLeadershipBoard = (container)=>{
         tr.appendChild(teamName);
         tr.appendChild(points);
 
+        tr.addEventListener('click',()=>{
+            getTeamByParams(team.id);
+            location.hash = `#teams/teamId:${team.id}`
+        })
+
         container.appendChild(tr);
         });
 }
@@ -269,6 +274,11 @@ export const renderDetailedLeadershipBoard = async(id)=>{
         tr.appendChild(againstPoints);
         tr.appendChild(points);
 
+        tr.addEventListener('click',()=>{
+            getTeamByParams(team.id);
+            location.hash = `#teams/teamId:${team.id}`
+        })
+
         positionBoardContainer.appendChild(tr);
     });
 
@@ -305,6 +315,7 @@ export const renderAnnotationsList = async(id)=>{
         tr.appendChild(scorerPosition);
         tr.appendChild(scorerName);
         tr.appendChild(scorerPoints);
+        
 
         scorersTable.appendChild(tr);
 

@@ -1,4 +1,5 @@
 //JAVASCRIPT PARA EL FORMULARIO DE CREACION DE EQUIPO
+import {createTeamDB} from "../services/teams.services.js"
 
 //teams = [];
 let classPLayer = 0;
@@ -119,40 +120,58 @@ const createPlayers = ()=>{
     return players;
 }
 
-const createTeam = () => {
+const createTeam = async() => {
     //createPlayers();
-    let players = [];
+    let Players = [];
     for (let i = 1; i <= classPLayer; i++) {
         let data = document.querySelectorAll(`.player${i}`);
         let dataPlayer = {
             name: data[0].value,
-            lastname: data[1].value,
+            lastName: data[1].value,
             position: data[2].value,
-            annotations:'',
-            triples:''
+            annotations:0,
+            triples:0
         }
-        players.push(dataPlayer);
+        Players.push(dataPlayer);
     }
 
-    let coaches = document.querySelectorAll('.coach');
-    let coachesNames = [];
-    coaches.forEach(coach => {
-        coachesNames.push(coach.value)
-    });
+    let Coaches = [];
+
+    let coach1= document.querySelectorAll('.coach-1');
+    const Coach_1 = {
+        name: coach1[0].value,
+        lastName: coach1[1].value
+    };
+    Coaches.push(Coach_1);
+
+    let coach2= document.querySelectorAll('.coach-2');
+    const Coach_2 = {
+        name: coach2[0].value,
+        lastName: coach2[1].value
+    }
+    Coaches.push(Coach_2);
+
+
 
     let team = {
-        teamName: teamNameForm.value,
-        coaches: coachesNames,
-        players: players,
-        win: '',
-        lose: '',
-        favorPoints:'',
-        againstPoints:'',
-        w:'',
-        points:''
+        name: teamNameForm.value,
+        Coach: Coaches,
+        players: Players,
+        winnerGames: 0,
+        losedGames: 0,
+        favorPoints:0,
+        againstPoints:0,
+        WGames:0,
+        points:0,
+        championshipId: 1,
+        player: Players.length,
+		coach: Coaches.length,
+        image: "https://img2.rtve.es/i/?w=1600&i=1627553054968.jpg"
     }
 
-    upsertTeam(team);
+    console.log(team);
+    await createTeamDB(team);
+    // upsertTeam(team);
 }
 
 createTeamBtn.addEventListener('click', (e)=>{

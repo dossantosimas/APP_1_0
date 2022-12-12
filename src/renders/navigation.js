@@ -1,6 +1,7 @@
 import { renderClubs, getTeamByParams, getPLayer } from '../renders/teams.js'
 import {renderDetailedLeadershipBoard, renderAnnotationsList, renderTriplesList, leadershipBoardPreview} from '../renders/boards.js'
-import {renderNewsPreview} from '../renders/news.js'
+import {renderNewsPreview, getNewsByParams, renderPreviewSideNews, getAllNews} from '../renders/news.js'
+// import {principalForm} from '../renders/registrationForm'
 
 // formCreateTeam.classList.add('ocultar');
 // mainTables.classList.remove('ocultar');
@@ -19,6 +20,12 @@ function navigator (){
     }
     if(location.hash.startsWith('#teams')){
         return clubes();
+    }
+    if(location.hash.startsWith('#news/newsId')){
+        return viewNews();
+    }
+    if(location.hash.startsWith('#news')){
+        return news();
     }
     else if(location.hash.startsWith('#home' || '/')) {
         return homePage();
@@ -45,6 +52,10 @@ const homePage = async ()=>{
     divClub3.classList.remove('row');
     clubDetailedContainer.classList.add('ocultar');
     clubDetailedContainer.classList.remove('row');
+    newsDetailedContainer.classList.add('ocultar');
+    newsDetailedContainer.classList.remove('row');
+    newsPageContainer.classList.add('ocultar');
+    newsContainerBody.classList.remove('row');
 
     leadershipBoardPreview();
     renderNewsPreview();  
@@ -64,8 +75,12 @@ const registro = ()=>{
     clubsContainer.classList.add('ocultar');
     clubsContainer.classList.remove('row');
     clubDetailedContainer.classList.add('ocultar');
-    clubDetailedContainer.classList.remove('row'); 
-
+    clubDetailedContainer.classList.remove('row');
+    newSectionContainer.classList.add('ocultar');
+    newsDetailedContainer.classList.remove('row');
+    newsPageContainer.classList.add('ocultar');
+    newsContainerBody.classList.remove('row'); 
+    // principalForm();
 }
 
 export const laLigaChampionShip = (name,id)=>{
@@ -81,6 +96,10 @@ export const laLigaChampionShip = (name,id)=>{
     clubsContainer.classList.remove('row');
     clubDetailedContainer.classList.add('ocultar');
     clubDetailedContainer.classList.remove('row');
+    newSectionContainer.classList.add('ocultar');
+    newsDetailedContainer.classList.remove('row');
+    newsPageContainer.classList.add('ocultar');
+    newsContainerBody.classList.remove('row');
 
 
     renderDetailedLeadershipBoard(id);
@@ -102,13 +121,17 @@ const clubes = ()=>{
     clubsContainer.classList.add('row');
     clubDetailedContainer.classList.add('ocultar');
     clubDetailedContainer.classList.remove('row');
+    newSectionContainer.classList.add('ocultar');
+    newsDetailedContainer.classList.remove('row');
+    newsPageContainer.classList.add('ocultar');
+    newsContainerBody.classList.remove('row');
 
     renderClubs();
 }
 
 const viewClub = ()=>{
     console.log(`Este es la vista de detalle de un club`);
-    console.log('clubes');
+
     HomePage.classList.add('ocultar');
     formCreateTeam.classList.add('ocultar');
     mainTables.classList.add('ocultar');
@@ -126,11 +149,70 @@ const viewClub = ()=>{
     divClub2.classList.add('row');
     divClub3.classList.remove('ocultar');
     divClub3.classList.add('row');
+    newSectionContainer.classList.add('ocultar');
+    newsDetailedContainer.classList.remove('row');
+    newsPageContainer.classList.add('ocultar');
+    newsContainerBody.classList.remove('row');
 
 
     //['#team', 'buscado']
     const [ , param] = location.hash.split(':');
     getTeamByParams(param);
+}
+
+const viewNews = (id)=>{
+    formCreateTeam.classList.add('ocultar');
+    mainTables.classList.add('ocultar');
+    scorersContainer.classList.add('ocultar');
+    triplesContainer.classList.add('ocultar');
+    HomePage.classList.add('ocultar');
+    newsContainer.classList.remove('ocultar');
+    newsContainer.classList.add('card-group');
+    clubsContainer.classList.add('ocultar');
+    clubsContainer.classList.remove('row');
+    divClub1.classList.add('ocultar');
+    divClub1.classList.remove('card');
+    divClub2.classList.add('ocultar');
+    divClub2.classList.remove('row');
+    divClub3.classList.add('ocultar');
+    divClub3.classList.remove('row');
+    clubDetailedContainer.classList.add('ocultar');
+    clubDetailedContainer.classList.remove('row');
+    newSectionContainer.classList.remove('ocultar');
+    newsDetailedContainer.classList.add('row');
+    newsPageContainer.classList.add('ocultar');
+    newsContainerBody.classList.remove('row');
+
+    const [ , param] = location.hash.split(':');
+    getNewsByParams(param);
+    renderPreviewSideNews(newsSideContainer,newsDetailedContainer);
+}
+
+const news =()=>{
+    formCreateTeam.classList.add('ocultar');
+    mainTables.classList.add('ocultar');
+    scorersContainer.classList.add('ocultar');
+    triplesContainer.classList.add('ocultar');
+    HomePage.classList.add('ocultar');
+    newsContainer.classList.remove('ocultar');
+    newsContainer.classList.add('card-group');
+    clubsContainer.classList.add('ocultar');
+    clubsContainer.classList.remove('row');
+    divClub1.classList.add('ocultar');
+    divClub1.classList.remove('card');
+    divClub2.classList.add('ocultar');
+    divClub2.classList.remove('row');
+    divClub3.classList.add('ocultar');
+    divClub3.classList.remove('row');
+    clubDetailedContainer.classList.add('ocultar');
+    clubDetailedContainer.classList.remove('row');
+    newSectionContainer.classList.add('ocultar');
+    newsDetailedContainer.classList.remove('row');
+    newsPageContainer.classList.remove('ocultar');
+    newsContainerBody.classList.add('row');
+
+    getAllNews();
+    renderPreviewSideNews(newsSideContainerPrincipal, newSectionContainer);
 }
 
 window.addEventListener('DOMContentLoaded', navigator, false, homePage());

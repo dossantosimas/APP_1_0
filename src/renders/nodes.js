@@ -37,3 +37,11 @@ const divClub3 = document.querySelector('#divClub3');
 
 // Lista de torneos barra de navegacion
 const navbarChampionships = document.querySelector('#navbar-list');
+
+// NEWS
+const newsPageContainer = document.querySelector('#news-page-container');
+const newsContainerBody = document.querySelector('#news-container-body');
+const newSectionContainer = document.querySelector('#new-section-container');
+const newsDetailedContainer = document.querySelector('#news-detailed-container');
+const newsSideContainer = document.querySelector('#news-side-container');
+const newsSideContainerPrincipal = document.querySelector('#news-side-container__principal');
