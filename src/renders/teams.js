@@ -46,21 +46,14 @@ export const renderClubs = async()=>{
 }
 
 export const getTeamByParams = async(id) =>{
-	const data = await getTeamById(id);
-	console.log(data);
+	const team = await getTeamById(id);
+	console.log(team);
 	coachesSection.innerHTML = '';
 	playersSection.innerHTML = '';
 	
-	// teamData = getTeamById();
-	// const { coaches, players} = data; 
-
-	const teamData = data.find(team => team.id == id);
-	// console.log(teamData)
-	console.log(`El equipo es ${teamData.name}`)
-
-	const coaches = teamData.Coach;
+	const coaches = team.Coach;
 	// console.log(coaches)
-	const players = teamData.players;
+	const players = team.players;
 	// console.log(players);
 
 	const coachTitle = document.createElement('h2');

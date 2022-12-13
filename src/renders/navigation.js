@@ -156,8 +156,8 @@ const viewClub = ()=>{
 
 
     //['#team', 'buscado']
-    const [ , param] = location.hash.split(':');
-    getTeamByParams(param);
+    // const [ , param] = location.hash.split(':');
+    // getTeamByParams(param);
 }
 
 const viewNews = (id)=>{

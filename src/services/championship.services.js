@@ -5,9 +5,5 @@ export function getChampionships() {
 }
 
 export function getChampionship(id) {
-    return get("/championship",{
-        params:{
-            id: id
-        }
-    })
+    return get(`/championship/${id}`)
 }

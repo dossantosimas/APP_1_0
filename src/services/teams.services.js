@@ -6,11 +6,7 @@ export function getTeams() {
 }
 
 export function getTeamById(id) {
-    return get("/teams",{
-        params: {
-            id: id
-        }
-    });
+    return get(`/teams/${id}`);
 }
 
 export function createTeamDB(body) {

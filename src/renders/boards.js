@@ -226,13 +226,13 @@ export const renderDetailedLeadershipBoard = async(id)=>{
     let number = 1;
     
     const championship = await getBoards(id);
-    // console.log(championship)
-    const Championship = championship.find(item => item.id == id);
+    console.log(championship)
+    // const Championship = championship.find(item => item.id == id);
 
     // console.log('el campeonato es:');
     // console.log(Championship.name);
 
-    const newChampionshipList = Championship.Teams.sort((a,b)=> b.points - a.points);
+    const newChampionshipList = championship.Teams.sort((a,b)=> b.points - a.points);
 
 
     newChampionshipList.forEach(team => {
