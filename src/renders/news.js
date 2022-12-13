@@ -1,6 +1,6 @@
 import { getTeams, getTeamById, getPlayerById } from "../services/teams.services.js";
 
-import {getNews} from "../services/news.services.js"
+import {getNews, getNewsById} from "../services/news.services.js"
 
 export const renderNewsPreview = async()=>{
     newsContainer.innerHTML = '';
@@ -85,9 +85,8 @@ export const getAllNews = async(id)=>{
 
 export const getNewsByParams = async(id)=>{
     newsDetailedContainer.innerHTML = '';
-    const newsList = await getNews();
+    const news = await getNewsById(id);
 
-    const news = newsList.find(news=> news.id == id);
     console.log(news);
 
     const article = document.createElement('article');

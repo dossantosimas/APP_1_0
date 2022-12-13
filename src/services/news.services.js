@@ -5,9 +5,5 @@ export function getNews() {
 }
 
 export function getNewsById(id) {
-    return get("/news", {
-        params: {
-            id: id
-        }
-    })
+    return get(`/news/${id}`)
 }
