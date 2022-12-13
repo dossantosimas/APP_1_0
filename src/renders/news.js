@@ -87,7 +87,7 @@ export const getNewsByParams = async(id)=>{
     newsDetailedContainer.innerHTML = '';
     const news = await getNewsById(id);
 
-    console.log(news);
+    // console.log(news);
 
     const article = document.createElement('article');
     const divTitle = document.createElement('div');
